@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Análisis de estadística paramétrica y no paramétrica | Análisis Exploratorio y Estadístico de Rendimiento Estudiantil</title>
+  <meta name="description" content="Chapter 3 Análisis de estadística paramétrica y no paramétrica | Análisis Exploratorio y Estadístico de Rendimiento Estudiantil" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Análisis de estadística paramétrica y no paramétrica | Análisis Exploratorio y Estadístico de Rendimiento Estudiantil" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Análisis de estadística paramétrica y no paramétrica | Análisis Exploratorio y Estadístico de Rendimiento Estudiantil" />
+  
+  
+  
+
+<meta name="author" content="Ronald Díaz, Luis Salgado" />
+
+
+<meta name="date" content="2026-09-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analisis-exploratorio-de-la-variable-objetivo.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Luis Salgado and Ronald Diaz Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> EDA</a></li>
+<li class="chapter" data-level="2" data-path="analisis-exploratorio-de-la-variable-objetivo.html"><a href="analisis-exploratorio-de-la-variable-objetivo.html"><i class="fa fa-check"></i><b>2</b> ANALISIS EXPLORATORIO DE LA VARIABLE OBJETIVO</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="analisis-exploratorio-de-la-variable-objetivo.html"><a href="analisis-exploratorio-de-la-variable-objetivo.html#analisis-exploratorio-bivariado"><i class="fa fa-check"></i><b>2.1</b> ANALISIS EXPLORATORIO BIVARIADO</a></li>
+<li class="chapter" data-level="2.2" data-path="analisis-exploratorio-de-la-variable-objetivo.html"><a href="analisis-exploratorio-de-la-variable-objetivo.html#analsis-de-correlacion"><i class="fa fa-check"></i><b>2.2</b> ANALSIS DE CORRELACION</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="análisis-de-estadística-paramétrica-y-no-paramétrica.html"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html"><i class="fa fa-check"></i><b>3</b> Análisis de estadística paramétrica y no paramétrica</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis Exploratorio y Estadístico de Rendimiento Estudiantil</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="análisis-de-estadística-paramétrica-y-no-paramétrica" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Análisis de estadística paramétrica y no paramétrica<a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#an%C3%A1lisis-de-estad%C3%ADstica-param%C3%A9trica-y-no-param%C3%A9trica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Librerías adicionales necesarias:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb43-1" tabindex="-1"></a><span class="fu">library</span>(effsize)</span></code></pre></div>
+<pre><code>## Warning: package &#39;effsize&#39; was built under R version 4.6.1</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb45-1" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
+<span id="cb45-2"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb45-2" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<pre><code>## Warning: package &#39;car&#39; was built under R version 4.6.1</code></pre>
+<pre><code>## Cargando paquete requerido: carData</code></pre>
+<pre><code>## Warning: package &#39;carData&#39; was built under R version 4.6.1</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;car&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     recode</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     some</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb52-1" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code></pre></div>
+<pre><code>## Warning: package &#39;rstatix&#39; was built under R version 4.6.1</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;rstatix&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<p>Resumen exploratorio agrupado por la variable dicotómica:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Extracurricular.Activities) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb56-4"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-4" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">length</span>(Performance.Index),</span>
+<span id="cb56-5"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-5" tabindex="-1"></a>    <span class="at">prom =</span> <span class="fu">mean</span>(Performance.Index),</span>
+<span id="cb56-6"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-6" tabindex="-1"></a>    <span class="at">ds =</span> <span class="fu">sd</span>(Performance.Index),</span>
+<span id="cb56-7"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-7" tabindex="-1"></a>    <span class="at">mediana =</span> <span class="fu">median</span>(Performance.Index),</span>
+<span id="cb56-8"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-8" tabindex="-1"></a>    <span class="at">RIC =</span> <span class="fu">IQR</span>(Performance.Index),</span>
+<span id="cb56-9"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-9" tabindex="-1"></a>    <span class="at">min =</span> <span class="fu">min</span>(Performance.Index),</span>
+<span id="cb56-10"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-10" tabindex="-1"></a>    <span class="at">max =</span> <span class="fu">max</span>(Performance.Index)</span>
+<span id="cb56-11"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb56-11" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 8
+##   Extracurricular.Activities     n  prom    ds mediana   RIC   min   max
+##   &lt;fct&gt;                      &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 No                          5052  54.8  19.2      55    30    10    99
+## 2 Yes                         4948  55.7  19.3      55    30    11   100</code></pre>
+<p>Preparación de los vectores para evaluar si participar en actividades extracurriculares impacta la calificación:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb58-1" tabindex="-1"></a>df_yes <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Extracurricular.Activities <span class="sc">==</span> <span class="st">&#39;Yes&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Performance.Index)</span>
+<span id="cb58-2"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb58-2" tabindex="-1"></a>df_no <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Extracurricular.Activities <span class="sc">==</span> <span class="st">&#39;No&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Performance.Index)</span></code></pre></div>
+<p>Supuesto de normalidad (Kolmogorov-Smirnov):</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb59-1" tabindex="-1"></a><span class="fu">ks.test</span>(<span class="fu">scale</span>(df_yes), <span class="st">&#39;pnorm&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(scale(df_yes), &quot;pnorm&quot;): ties should not be present
+## for the one-sample Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  scale(df_yes)
+## D = 0.049223, p-value = 7.725e-11
+## alternative hypothesis: two-sided</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb62-1" tabindex="-1"></a><span class="fu">ks.test</span>(<span class="fu">scale</span>(df_no), <span class="st">&#39;pnorm&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in ks.test.default(scale(df_no), &quot;pnorm&quot;): ties should not be present
+## for the one-sample Kolmogorov-Smirnov test</code></pre>
+<pre><code>## 
+##  Asymptotic one-sample Kolmogorov-Smirnov test
+## 
+## data:  scale(df_no)
+## D = 0.045217, p-value = 2.135e-09
+## alternative hypothesis: two-sided</code></pre>
+<p>Supuesto de homocedasticidad (Igualdad de varianzas):</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb65-1" tabindex="-1"></a><span class="fu">var.test</span>(df_yes, df_no)</span></code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  df_yes and df_no
+## F = 1.0118, num df = 4947, denom df = 5051, p-value = 0.6792
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.957198 1.069463
+## sample estimates:
+## ratio of variances 
+##           1.011767</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb67-1" tabindex="-1"></a><span class="fu">leveneTest</span>(Performance.Index <span class="sc">~</span> Extracurricular.Activities, <span class="at">data =</span> data, <span class="at">center =</span> median)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##         Df F value Pr(&gt;F)
+## group    1  0.4272 0.5134
+##       9998</code></pre>
+<p>Se cumple el supuesto de homocedasticidad al tener p-valores mayores a 0.05.</p>
+<p>Estadística Paramétrica y Tamaño del Efecto:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb69-1" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> df_yes, <span class="at">y =</span> df_no, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  df_yes and df_no
+## t = 2.453, df = 9998, p-value = 0.01418
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.1893163 1.6954392
+## sample estimates:
+## mean of x mean of y 
+##  55.70089  54.75851</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb71-1" tabindex="-1"></a><span class="fu">cohen.d</span>(df_yes, df_no, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.0490624 (negligible)
+## 95 percent confidence interval:
+##       lower       upper 
+## 0.009850355 0.088274442</code></pre>
+<p>Aunque la prueba T detecta una diferencia estadística, el tamaño del efecto (Cohen’s d) es insignificante (trivial).</p>
+<p>Estadística No Paramétrica (Prueba de Wilcoxon):
+Dado que comprobamos que no hay normalidad, la prueba más adecuada es la de Wilcoxon-Mann-Whitney.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="análisis-de-estadística-paramétrica-y-no-paramétrica.html#cb73-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(Performance.Index <span class="sc">~</span> Extracurricular.Activities, <span class="at">data =</span> data)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Performance.Index by Extracurricular.Activities
+## W = 12182386, p-value = 0.02842
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Con una confianza del 95%, podemos decir que existen diferencias estadísticamente significativas en el Índice de Rendimiento según la participación extracurricular, pero su impacto real (tamaño del efecto) es insignificante.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analisis-exploratorio-de-la-variable-objetivo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-cross-refs.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

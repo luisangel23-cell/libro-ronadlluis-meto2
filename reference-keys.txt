@@ -1,0 +1,5 @@
+eda
+analisis-exploratorio-de-la-variable-objetivo
+analisis-exploratorio-bivariado
+analsis-de-correlacion
+análisis-de-estadística-paramétrica-y-no-paramétrica

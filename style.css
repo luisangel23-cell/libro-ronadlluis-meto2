@@ -1,0 +1,28 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+/* --- FONDO DE MARCA DE AGUA PARA GITBOOK --- */
+.book {
+  background-image: url("foto.png") !important; /* Nota: si tu archivo se llama fondo.png, asegúrate de cambiarlo aquí */
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-size: 45% !important;
+}
+
+/* Capa semitransparente para que el texto y las tablas se lean perfectamente */
+.book .book-body {
+  background: rgba(255, 255, 255, 0.91) !important;
+}
